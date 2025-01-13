@@ -56,7 +56,7 @@ const Signup = () => {
   const handleGoogleLogin = () => {
     const baseUrl =
       process.env.NODE_ENV === "production"
-        ? "https://your-deployed-domain.com"
+        ? "https://ossus-one.vercel.app"
         : "http://localhost:5000";
   
     window.location.href = `${baseUrl}/auth/google`;
