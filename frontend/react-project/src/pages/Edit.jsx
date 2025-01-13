@@ -7,7 +7,7 @@ import { BiErrorCircle } from 'react-icons/bi';
 import { FaRegFileImage, FaSpinner } from 'react-icons/fa';
 import Input from '../components/Input/Input';
 import TagInput from '../components/Input/TagInput';
-import Textarea from '../components/Input/TextArea';
+import Textarea from '../components/Input/Textarea';
 import { ImSpinner2 } from 'react-icons/im'; 
 import { useUser } from '../context/UserContext';
 import { MdOutlinePersonOff } from 'react-icons/md';

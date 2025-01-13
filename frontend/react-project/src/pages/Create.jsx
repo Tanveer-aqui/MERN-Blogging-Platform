@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import BackButton from '../components/Buttons/BackButton';
 import { BiErrorCircle } from 'react-icons/bi';
 import Input from '../components/Input/Input';
-import Textarea from '../components/Input/TextArea';
+import Textarea from '../components/Input/Textarea';
 import TagInput from '../components/Input/TagInput';
 import { FaRegFileImage, FaSpinner } from 'react-icons/fa';
 import { ImSpinner2 } from 'react-icons/im'; 
