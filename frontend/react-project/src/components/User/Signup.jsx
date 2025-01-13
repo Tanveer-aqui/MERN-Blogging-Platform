@@ -54,8 +54,14 @@ const Signup = () => {
   };
 
   const handleGoogleLogin = () => {
-    window.location.href = `http://localhost:5000/auth/google`;
+    const baseUrl =
+      process.env.NODE_ENV === "production"
+        ? "https://your-deployed-domain.com"
+        : "http://localhost:5000";
+  
+    window.location.href = `${baseUrl}/auth/google`;
   };
+  
 
   return (
     <div className=" w-[85%] lg:w-[30%] md:w-[50%] px-6 py-10 border border-zinc-700 rounded-lg shadow-lg bg-zinc-900 text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">

@@ -55,8 +55,14 @@ const Login = () =>  {
   };
 
   const handleGoogleLogin = () => {
-    window.location.href = 'http://localhost:5000/auth/google';
-  }
+    const baseUrl =
+      process.env.NODE_ENV === "production"
+        ? "https://your-deployed-domain.com"
+        : "http://localhost:5000";
+  
+    window.location.href = `${baseUrl}/auth/google`;
+  };
+  
 
   return (
     <>
