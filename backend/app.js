@@ -4,7 +4,7 @@ dotenv.config();
 import './passport.js'
 
 import express from 'express'
-import { PORT, mongoDBURL } from './config.js'
+import { PORT } from './config.js'
 import mongoose from 'mongoose';
 import blogRoute from "./routes/blog.js"
 import commentRoute from "./routes/comment.js"
@@ -36,13 +36,13 @@ app.use(express.urlencoded({extended: true}));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: "https://ossus-one.vercel.app",
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
   credentials: true
 }))
 
 const store = MongoStore.create({
-  mongoUrl: MONGO_URL, //MONGO_URL //mongoDBURL
+  mongoUrl: MONGO_URL,
   crypto: {
     secret: process.env.SESSION_SECRET
   },
@@ -100,7 +100,7 @@ app.use((err, req, res, next) => {
 })
 
 mongoose
-    .connect(MONGO_URL) //MONGO_URL //mongoDBURL
+    .connect(MONGO_URL)
     .then(() => {
         console.log("Connected to MongoDB");
         app.listen(PORT, () => {

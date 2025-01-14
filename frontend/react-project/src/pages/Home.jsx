@@ -12,7 +12,7 @@ function Home() {
  
 
     useEffect(() => {
-        axios.get("http://localhost:5000/blogs")
+        axios.get(`${import.meta.env.BACKEND_API_URL}/blogs`)
             .then((res) => {
                 setBlogs(res.data.data);                
             })

@@ -13,7 +13,7 @@ function BlogCard({ blog }) {
   useEffect(() => {
     if(user) {
       axios
-      .get(`http://localhost:5000/bookmarks/${user.userId}`)
+      .get(`${import.meta.env.BACKEND_API_URL}/bookmarks/${user.userId}`)
       .then((res) => {
         const isBookmarked = res.data.data.data.some((bookmark) => bookmark.blogId._id === blog._id );
         setToggleBookmarkIcon(isBookmarked);
@@ -29,14 +29,14 @@ function BlogCard({ blog }) {
 
     if(toggleBookmarkIcon) {
       axios
-        .delete(`http://localhost:5000/bookmarks/${user.userId}/${blog._id}`)
+        .delete(`${import.meta.env.BACKEND_API_URL}/bookmarks/${user.userId}/${blog._id}`)
         .then(() => {
           setToggleBookmarkIcon(false);
         })
         .catch((e) => console.error('Error removing bookmark:', e));
     } else {
       axios
-      .post('http://localhost:5000/bookmarks', data)
+      .post(`${import.meta.env.BACKEND_API_URL}/bookmarks`, data)
       .then(() => {
         setToggleBookmarkIcon(true);
       })
@@ -44,9 +44,7 @@ function BlogCard({ blog }) {
         console.log("Error bookmarking blog...", e);
       })
     }
-
   }
-
 
     const formatDate = (date) => {
       return new Date(date).toLocaleDateString('en-US', {

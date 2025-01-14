@@ -5,7 +5,6 @@ import { useUser } from '../../context/UserContext.jsx';
 import ProfilePlaceholder from '../Placeholder/ProfilePlaceholder.jsx';
 
 
-
 const BlogContent = ({ blog, handleModal }) => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const {user} = useUser();
