@@ -7,7 +7,7 @@ import BlogContent from '../components/Blog/BlogContent';
 import CommentSection from '../components/Comment/CommentSection';
 import Loading from '../components/Loading/Loading';
 
-const API_URL = `${import.meta.env.BACKEND_API_URL}/blogs`;
+const API_URL = `${import.meta.env.VITE_BACKEND_API_URL}/blogs`;
 
 const Show = () => {
   const [blog, setBlog] = useState({});

@@ -12,11 +12,11 @@ function Home() {
  
 
     useEffect(() => {
-        axios.get(`${import.meta.env.BACKEND_API_URL}/blogs`)
+        axios.get(`${import.meta.env.VITE_BACKEND_API_URL}/blogs`)
             .then((res) => {
                 setBlogs(res.data.data);                
             })
-            .catch((e) => {
+            .catch((error) => {
                 console.error('Error fetching blogs:', error);
                 toast.error("Error fetching blogs!");
             })

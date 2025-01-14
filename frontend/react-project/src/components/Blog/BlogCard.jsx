@@ -13,7 +13,7 @@ function BlogCard({ blog }) {
   useEffect(() => {
     if(user) {
       axios
-      .get(`${import.meta.env.BACKEND_API_URL}/bookmarks/${user.userId}`)
+      .get(`${import.meta.env.VITE_BACKEND_API_URL}/bookmarks/${user.userId}`)
       .then((res) => {
         const isBookmarked = res.data.data.data.some((bookmark) => bookmark.blogId._id === blog._id );
         setToggleBookmarkIcon(isBookmarked);
@@ -29,14 +29,14 @@ function BlogCard({ blog }) {
 
     if(toggleBookmarkIcon) {
       axios
-        .delete(`${import.meta.env.BACKEND_API_URL}/bookmarks/${user.userId}/${blog._id}`)
+        .delete(`${import.meta.env.VITE_BACKEND_API_URL}/bookmarks/${user.userId}/${blog._id}`)
         .then(() => {
           setToggleBookmarkIcon(false);
         })
         .catch((e) => console.error('Error removing bookmark:', e));
     } else {
       axios
-      .post(`${import.meta.env.BACKEND_API_URL}/bookmarks`, data)
+      .post(`${import.meta.env.VITE_BACKEND_API_URL}/bookmarks`, data)
       .then(() => {
         setToggleBookmarkIcon(true);
       })
