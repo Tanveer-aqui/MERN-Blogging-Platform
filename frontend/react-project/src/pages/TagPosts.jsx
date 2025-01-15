@@ -3,8 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import BlogList from '../components/Blog/BlogList';
 
-
-const API_URL = "http://localhost:5000/blogs";
+const API_URL = `${import.meta.env.VITE_BACKEND_API_URL}/blogs`;
 
 const TagPosts = () => {
     const [tag, setTag] = useState('');

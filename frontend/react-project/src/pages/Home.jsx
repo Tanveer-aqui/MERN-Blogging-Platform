@@ -6,15 +6,14 @@ import BlogList from '../components/Blog/BlogList';
 import SideContainer from '../components/Containers/SideContainer';
 import Loading from '../components/Loading/Loading';
 
+const API_URL = `${import.meta.env.VITE_BACKEND_API_URL}`;
+
 function Home() {
     const [blogs, setBlogs] = useState([]);   
     const [loading, setLoading] = useState(true);
  
-
     useEffect(() => {
-        const apiUrl = `${import.meta.env.VITE_BACKEND_API_URL}/blogs`;
-        console.log('Fetching blogs from:', apiUrl);
-        axios.get(`${import.meta.env.VITE_BACKEND_API_URL}/blogs`)
+        axios.get(`${API_URL}/blogs`)
             .then((res) => {
                 setBlogs(res.data.data);                
             })

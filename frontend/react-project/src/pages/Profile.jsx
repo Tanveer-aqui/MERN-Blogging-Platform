@@ -6,6 +6,8 @@ import ProfilePlaceholder from '../components/Placeholder/ProfilePlaceholder';
 import { MdOutlinePersonOff } from 'react-icons/md';
 import Loading from '../components/Loading/Loading';
 
+const API_URL = `${import.meta.env.VITE_BACKEND_API_URL}`;
+
 const Profile = () => {
   const {user} = useUser();
   const [posts, setPosts] = useState([]);
@@ -15,7 +17,7 @@ const Profile = () => {
     if(user) {
       setLoading(true);
       axios
-      .get(`http://localhost:5000/users/${user.userId}/posts`)
+      .get(`${API_URL}/users/${user.userId}/posts`)
       .then((res) => {
         setPosts(res.data.data.data);
       })

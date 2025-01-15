@@ -15,7 +15,6 @@ const Reply = ({  commentId, reply, handleReplyEdit, handleReplyDelete }) => {
   const [showMoreButton, setShowMoreButton] = useState(false);
   const {user} = useUser();
   
-
   const replyRef = useRef(null);
   const textRef = useRef(null);
   const menuRef = useRef(null);

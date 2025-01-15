@@ -12,8 +12,7 @@ import { ImSpinner2 } from 'react-icons/im';
 import { useUser } from '../context/UserContext';
 import { MdOutlinePersonOff } from 'react-icons/md';
 
-
-const API_URL = "http://localhost:5000/blogs";
+const API_URL = `${import.meta.env.VITE_BACKEND_API_URL}/blogs`;
 
 const Create = () => {
     const [image, setImage] = useState('');

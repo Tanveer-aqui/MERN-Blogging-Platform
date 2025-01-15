@@ -4,7 +4,7 @@ import { useSearchParams } from "react-router-dom";
 import BlogList from "../components/Blog/BlogList";
 import Loading from "../components/Loading/Loading";
 
-const API_URL = "http://localhost:5000/blogs";
+const API_URL = `${import.meta.env.VITE_BACKEND_API_URL}/blogs`;
 
 const Search = () => {
   const [blogs, setBlogs] = useState([]);

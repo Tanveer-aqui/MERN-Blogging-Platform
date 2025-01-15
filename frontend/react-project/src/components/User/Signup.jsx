@@ -6,6 +6,8 @@ import { useUser } from '../../context/UserContext';
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import GoogleLogo from '../../assets/Google_logo.webp'
 
+const API_URL = `${import.meta.env.VITE_BACKEND_API_URL}`;
+
 const Signup = () => {
   const navigate = useNavigate();
   const { updateUser } = useUser()
@@ -37,7 +39,7 @@ const Signup = () => {
         email: formData.email, 
         password: formData.password
     }
-    axios.post(`http://localhost:5000/signup`, data, {withCredentials: true})
+    axios.post(`${API_URL}/signup`, data, {withCredentials: true})
     .then((res) => {
         const user = res.data;              
         updateUser(user);

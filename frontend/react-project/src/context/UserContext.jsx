@@ -1,6 +1,8 @@
 import React, { createContext, useContext, useState, useEffect } from 'react'
 import axios from 'axios'
 
+const API_URL = `${import.meta.env.VITE_BACKEND_API_URL}`;
+
 const UserContext = createContext();
 
 export const useUser = () => useContext(UserContext);
@@ -18,7 +20,7 @@ export const UserProvider = ({children}) => {
 
     const logoutUser = async () => {
         try {
-            await axios.get('http://localhost:5000/logout', { withCredentials: true });
+            await axios.get(`${API_URL}/logout`, { withCredentials: true });
             setUser(null);
             localStorage.removeItem('user');
         } catch (error) {
@@ -29,7 +31,7 @@ export const UserProvider = ({children}) => {
     useEffect(() => {
         const checkSession = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/session', { 
+                const response = await axios.get(`${API_URL}/session`, { 
                     withCredentials: true 
                 });
                 if (response.data.user) {

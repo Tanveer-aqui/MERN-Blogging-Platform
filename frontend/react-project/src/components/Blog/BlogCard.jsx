@@ -5,6 +5,8 @@ import axios from 'axios';
 import { FaBookmark, FaRegBookmark } from 'react-icons/fa';
 import ProfilePlaceholder from '../Placeholder/ProfilePlaceholder';
 
+const API_URL = `${import.meta.env.VITE_BACKEND_API_URL}`;
+
 function BlogCard({ blog }) {
   const { user } = useUser();  
   const [toggleBookmarkIcon, setToggleBookmarkIcon ] = useState(false);
@@ -13,7 +15,7 @@ function BlogCard({ blog }) {
   useEffect(() => {
     if(user) {
       axios
-      .get(`${import.meta.env.VITE_BACKEND_API_URL}/bookmarks/${user.userId}`)
+      .get(`${API_URL}/bookmarks/${user.userId}`)
       .then((res) => {
         const isBookmarked = res.data.data.data.some((bookmark) => bookmark.blogId._id === blog._id );
         setToggleBookmarkIcon(isBookmarked);
@@ -29,14 +31,14 @@ function BlogCard({ blog }) {
 
     if(toggleBookmarkIcon) {
       axios
-        .delete(`${import.meta.env.VITE_BACKEND_API_URL}/bookmarks/${user.userId}/${blog._id}`)
+        .delete(`${API_URL}/bookmarks/${user.userId}/${blog._id}`)
         .then(() => {
           setToggleBookmarkIcon(false);
         })
         .catch((e) => console.error('Error removing bookmark:', e));
     } else {
       axios
-      .post(`${import.meta.env.VITE_BACKEND_API_URL}/bookmarks`, data)
+      .post(`${API_URL}/bookmarks`, data)
       .then(() => {
         setToggleBookmarkIcon(true);
       })

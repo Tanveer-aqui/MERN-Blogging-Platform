@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom';
 import { useUser } from '../context/UserContext';
 import { toast } from 'react-toastify';
 import { RiDeleteBin6Line } from "react-icons/ri";
-import { FaSpinner } from 'react-icons/fa';
 import { MdOutlinePersonOff } from 'react-icons/md';
 import Loading from '../components/Loading/Loading';
+
+const API_URL = `${import.meta.env.VITE_BACKEND_API_URL}`;
 
 const Bookmark = () => {
     const [bookmarks, setBookmarks] = useState([]);
@@ -16,7 +17,7 @@ const Bookmark = () => {
     useEffect(() => {
       if(user?.userId) {
         setIsLoading(true);
-        axios.get(`http://localhost:5000/bookmarks/${user.userId}`)
+        axios.get(`${API_URL}/bookmarks/${user.userId}`)
         .then((res) => {
           setBookmarks(res.data.data.data);
         })
@@ -30,7 +31,7 @@ const Bookmark = () => {
     }, [user?.userId])
 
     const handleRemoveBookmark = (bookmarkId) => {
-      axios.delete(`http://localhost:5000/bookmarks/${bookmarkId}`)
+      axios.delete(`${API_URL}/bookmarks/${bookmarkId}`)
       .then(() => {
         setBookmarks(bookmarks.filter((b) => b._id !== bookmarkId));
         toast.success('blog removed from Bookmark')

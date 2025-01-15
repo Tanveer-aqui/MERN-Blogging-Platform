@@ -11,6 +11,8 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { MdOutlineAddBox } from "react-icons/md";
 
+const API_URL = `${import.meta.env.VITE_BACKEND_API_URL}`;
+
 
 const Navbar = ({visibility = true}) => {
   const {user, logoutUser} = useUser();  
@@ -35,7 +37,7 @@ const Navbar = ({visibility = true}) => {
   }, [menuOpen])
 
   const handleLogout = () => {
-    axios.get("http://localhost:5000/logout")
+    axios.get(`${API_URL}/logout`)
     .then(() => {
       logoutUser();
       navigate(location.pathname);

@@ -5,8 +5,7 @@ import CommentForm from './CommentForm';
 import { useUser } from '../../context/UserContext';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-
-const API_URL = "http://localhost:5000/blogs";
+const API_URL = `${import.meta.env.VITE_BACKEND_API_URL}/blogs`;
 
 function CommentSection({ blogId, initialComments, initialReplies }) {
   const [comments, setComments] = useState(initialComments);
