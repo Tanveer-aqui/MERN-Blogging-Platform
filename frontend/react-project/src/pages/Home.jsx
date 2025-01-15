@@ -12,6 +12,8 @@ function Home() {
  
 
     useEffect(() => {
+        const apiUrl = `${import.meta.env.VITE_BACKEND_API_URL}/blogs`;
+        console.log('Fetching blogs from:', apiUrl);
         axios.get(`${import.meta.env.VITE_BACKEND_API_URL}/blogs`)
             .then((res) => {
                 setBlogs(res.data.data);                
