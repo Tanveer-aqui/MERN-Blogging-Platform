@@ -57,11 +57,7 @@ const Login = () =>  {
   };
 
   const handleGoogleLogin = () => {
-    const baseUrl =
-      process.env.NODE_ENV === "production"
-        ? "https://ossus.onrender.com"
-        : "http://localhost:5000";
-  
+    const baseUrl = "https://ossus.onrender.com"
     window.location.href = `${baseUrl}/auth/google`;
   };
   
