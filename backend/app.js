@@ -36,7 +36,7 @@ app.use(express.urlencoded({extended: true}));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.use(cors({
-  origin: "https://ossus-one.vercel.app",
+  origin: process.env.CLIENT_URL,
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
   credentials: true
 }))
