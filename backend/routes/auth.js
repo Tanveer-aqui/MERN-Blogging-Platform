@@ -15,7 +15,7 @@ router.get(
     '/auth/google/callback',
     passport.authenticate('google', { failureRedirect: '/login' }),
     (req, res) => {
-        res.redirect('http://localhost:5173/');
+        res.redirect('https://ossus-one.vercel.app/');
     }
 );
 
